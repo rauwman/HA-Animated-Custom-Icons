@@ -43,6 +43,8 @@ extra_styles:
                     ? 'var(--state-icon-active-color);'
                     : 'var(--state-icon-color);' }
 
+          ### EXTRA LINES FOR CUSTOM ICONS ###
+
           --bulb-color: ${
             variables.state_on && entity.attributes.brightness
                 ? bulb_color
@@ -63,12 +65,17 @@ extra_styles:
                 : variables.state_on && !entity.attributes.brightness
                     ? 'var(--state-icon-active-color-shade);'
                     : 'var(--state-icon-color);' }
+
+          ### STOP HERE ###
+          
         }
 
         .light-color {
           fill: var(--light-color);
           transition: all 0.25s ease-out;
         }
+
+        ### EXTRA LINES FOR CUSTOM ICONS ###
 
         .bulb-color {
           fill: var(--bulb-color);
@@ -85,6 +92,7 @@ extra_styles:
           transition: all 0.25s ease-out;
         }
 
+        ### STOP HERE ###
 
         /* magnification */
         :host {
