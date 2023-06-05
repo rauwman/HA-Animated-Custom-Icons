@@ -8,10 +8,6 @@
 * Simple way: easy to install, a lot of work to modifiy later
 * Difficult way: a bit more time to invest for install, easier to modifiy later
 
-<html lang="en">
-<!-- @Author: Kwaku Amoh-Aboagye 
-@Github: ket-c
--->
 
 <head>
     <meta charset="UTF-8">
@@ -65,7 +61,6 @@
     </script>
 </body>
 
-</html>
 
 ## Installation
 
