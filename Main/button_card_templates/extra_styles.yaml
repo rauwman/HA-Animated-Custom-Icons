@@ -42,12 +42,49 @@ extra_styles:
                 : variables.state_on && !entity.attributes.brightness
                     ? 'var(--state-icon-active-color);'
                     : 'var(--state-icon-color);' }
+
+          --bulb-color: ${
+            variables.state_on && entity.attributes.brightness
+                ? bulb_color
+                : variables.state_on && !entity.attributes.brightness
+                    ? 'var(--state-icon-active-color-bulb);'
+                    : 'var(--state-icon-color);' }
+
+          --room-color: ${
+            variables.state_on && entity.attributes.brightness
+                ? room_color
+                : variables.state_on && !entity.attributes.brightness
+                    ? 'var(--state-icon-active-color-room);'
+                    : 'var(--state-icon-color);' }
+
+          --shade-color: ${
+            variables.state_on && entity.attributes.brightness
+                ? shade_color
+                : variables.state_on && !entity.attributes.brightness
+                    ? 'var(--state-icon-active-color-shade);'
+                    : 'var(--state-icon-color);' }
         }
 
         .light-color {
           fill: var(--light-color);
           transition: all 0.25s ease-out;
         }
+
+        .bulb-color {
+          fill: var(--bulb-color);
+          transition: all 0.25s ease-out;
+        }
+
+        .room-color {
+          fill: var(--room-color);
+          transition: all 0.25s ease-out;
+        }
+
+        .shade-color {
+          fill: var(--shade-color);
+          transition: all 0.25s ease-out;
+        }
+
 
         /* magnification */
         :host {

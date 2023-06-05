@@ -4,6 +4,515 @@
 #                                               #
 #################################################
 
+###############################
+#            START            #
+#         CUSTOM ICONS        #
+###############################
+
+icon_ceiling_light:
+  styles:
+    custom_fields:
+      icon:
+        - width: 110%
+        - margin-left: -14%
+        - margin-top: 1%
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on && variables.timeout < 2000 ? 'on' : null;
+        return `
+          <svg viewBox="0 0 50 50">
+            <style>
+              @keyframes on {
+                0% {
+                  transform: scale(0.85);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.95);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                100% {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 0.8s;
+                transform-origin: center;
+              }
+            </style>
+            <path fill="#9da0a2" d="M21.7,1.3c-3.1-0.8-6.8-0.8-9.8,0c-1.1,0.3-1.6,1.1-1.4,2.2c0.5,2.4,2.6,4.1,5.3,4.4v4.2c0.3-0.1,0.7-0.1,1-0.1
+                c0.4,0,0.7,0,1.1,0.1V8c2.7-0.4,4.8-2.1,5.3-4.4C23.3,2.4,22.8,1.6,21.7,1.3z"/>
+            <path class="${state} bulb-color" d="M12.2,23.5c0,1.8,2.3,3.2,4.6,3.2c2.4,0,4.6-1.5,4.6-3.2c-1.3-0.2-2.9-0.3-4.6-0.3
+                C15.1,23.1,13.5,23.3,12.2,23.5z"/>
+            <path class="${state} shade-color" d="M22.3,16.2c-0.6-2.1-2.4-3.7-4.5-4.1c-0.3-0.1-0.7-0.1-1.1-0.1c-0.3,0-0.7,0-1,0.1c-2.1,0.4-3.9,1.9-4.5,4.1
+                c-3.8,1.9-6.9,6-7,9.3v0.2c0,3.4,5,5.7,12.5,5.7c7.6,0,12.6-2.3,12.5-5.7v-0.2C29.3,22.2,26.2,18.1,22.3,16.2z M16.8,29.6
+                c-6.4,0-10.7-1.5-10.7-3.8c0-2.3,4.3-3.9,10.7-3.9c6.4,0,10.7,1.5,10.7,3.9C27.5,28.1,23.2,29.6,16.8,29.6z"/>
+          </svg>
+        `;
+      ]]]
+
+icon_shade_long:
+  styles:
+    custom_fields:
+      icon:
+        - width: 140%
+        - margin-top: -1%
+        - margin-left: -25%
+        - fill: >
+            [[[
+              return variables.state_on
+                  ? '#9da0a2'
+                  : '#9da0a2';
+            ]]]
+  custom_fields:
+    icon: >
+      [[[
+        let style = `
+          <style>
+            @keyframes on {
+              0% {
+                transform: scale(0.85);
+              }
+              20% {
+                transform: scale(1.1);
+              }
+              40% {
+                transform: scale(0.95);
+              }
+              60% {
+                transform: scale(1.03);
+              }
+              80% {
+                transform: scale(0.97);
+              }
+              100% {
+                transform: scale(1);
+              }
+            }
+            .on {
+              animation: on 0.8s;
+              transform-origin: center;
+            }
+          </style>
+        `,
+          path = `
+            <path d="M15.7,13v13.9c-2.9,0.1-5.2,0.7-5.8,1.5c-0.1,0.1-0.1,0.2-0.1,0.4V30c0,1,3.1,1.9,6.9,1.9s6.9-0.8,6.9-1.9v-1.2
+              c0-0.9-2.6-1.7-5.9-1.8V13"/>
+          `,
+          filter = `
+            <filter id="blurMe">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="0.3" />
+            </filter>
+          `;
+        if (variables.state_on) {
+            return `
+              <svg viewBox="0 0 50 50"> ${style} ${filter} ${path}
+              <ellipse class="on bulb-color" cx="16.7" cy="12.2" rx="6.6" ry="2.7" filter="url(#blurMe)" opacity="0.6"/>
+              <path class="on shade-color" d="M21.6,13.3c1.2-0.3,1.9-0.8,2.1-1.2c0-0.1,0-0.1,0-0.2v-9c0-0.1,0-0.1,0-0.2c-0.2-0.4-0.8-0.8-1.9-1.2
+                c-2.8-0.8-7.3-0.8-10,0c-1.1,0.3-1.8,0.7-1.9,1.2c0,0.1,0,0.1,0,0.2v9c0,0.1,0,0.1,0,0.2c0.2,0.4,0.9,0.9,2.1,1.2
+                c1.1,0.3,2.5,0.5,3.9,0.5h2C19.1,13.7,20.5,13.6,21.6,13.3z M13.2,4.5c-2-0.4-2-1-0.1-1.4c2-0.4,5.2-0.4,7.2,0
+                c1.9,0.4,1.9,1-0.1,1.4C18.2,4.9,15.1,4.9,13.2,4.5z"/>
+              <path class="on bulb-color" d="M16.7,0.2c-3.6,0-6.6,0.7-6.2,1.8c0.9,2.5,2.1,2.8,6.2,2.8c4.2-0.1,5.4-0.3,6.2-2.8C23.3,0.9,20.3,0.2,16.7,0.2z" filter="url(#blurMe)" opacity="0.6"/>
+              </svg>
+            `;
+        } else {
+            return `
+              <svg viewBox="0 0 50 50"> ${style} ${path}
+              <path d="M21.6,13.3c1.2-0.3,1.9-0.8,2.1-1.2c0-0.1,0-0.1,0-0.2v-9c0-0.1,0-0.1,0-0.2c-0.2-0.4-0.8-0.8-1.9-1.2
+                c-2.8-0.8-7.3-0.8-10,0c-1.1,0.3-1.8,0.7-1.9,1.2c0,0.1,0,0.1,0,0.2v9c0,0.1,0,0.1,0,0.2c0.2,0.4,0.9,0.9,2.1,1.2
+                c1.1,0.3,2.5,0.5,3.9,0.5h2C19.1,13.7,20.5,13.6,21.6,13.3z M13.2,4.5c-2-0.4-2-1-0.1-1.4c2-0.4,5.2-0.4,7.2,0
+                c1.9,0.4,1.9,1-0.1,1.4C18.2,4.9,15.1,4.9,13.2,4.5z"/>
+              </svg>
+            `;
+        }
+      ]]]
+
+icon_side_lamp:
+  styles:
+    custom_fields:
+      icon:
+        - width: 100%
+        - margin-left: -5%
+        - margin-top: 1%
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on && variables.timeout < 2000 ? 'on' : null;
+        return `
+          <svg viewBox="0 0 50 50">
+            <style>
+              @keyframes on {
+                0% {
+                  transform: scale(0.85);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.95);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                100% {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 0.8s;
+                transform-origin: center;
+              }
+            </style>
+              <path class="${state} bulb-color" d="M16.2,30.3c1.7,1.8,4.5,1.7,6.2,0c0.7-0.8,1.2-1.8,1.2-2.9H15C15,28.5,15.5,29.6,16.2,30.3z"/>
+              <path class="${state} shade-color" d="M29.6,23.1c-1.5-3-3.7-5.6-6.9-8.6l0-1.3c0.1-1.6-0.8-2.9-2.2-3.3c-0.4-0.1-0.8-0.2-1.2-0.2c-0.4,0-0.8,0.1-1.2,0.2
+                c-1.4,0.5-2.2,1.7-2.2,3.3l0.1,1.3c-0.3,0.3-0.6,0.5-0.8,0.8c-0.9,0.9-1.8,1.7-2.5,2.6c-1.5,1.7-2.7,3.4-3.6,5.3
+                c-0.7,1.3-0.2,2.6,1.2,2.6l18.2,0C29.8,25.7,30.3,24.4,29.6,23.1z"/>
+              <path fill="#9da0a2" d="M21.9,5.1c0-0.1,0-0.1,0-0.2c-0.1-1-0.7-1.9-1.5-2.2c-0.3-0.1-0.6-0.2-1-0.2c-0.9,0-1.7,0.5-2.2,1.3
+                c-0.2,0.4-0.4,0.9-0.4,1.4c0,0,0,0,0,0.1l-4.9,2.7c0,0,0,0,0,0c-0.2-0.1-0.3-0.2-0.5-0.3c-0.3-0.1-0.6-0.2-1-0.2
+                c-0.9,0-1.7,0.5-2.2,1.3H3.3V3.8C3.3,2.1,2.5,1,1.2,1C0.6,1,0.2,1.4,0.2,2v17.9c0,0.6,0.4,1,1.1,1c1.2,0,2.1-1.1,2.1-2.8v-6.8h4.9
+                c0.4,0.8,1.2,1.3,2.2,1.3c1.3,0,2.3-1,2.5-2.3l5.2-2.8c0,0.1,0,0.2,0,0.2l0,2.1c0.4-0.1,0.8-0.2,1.2-0.2c0.4,0,0.8,0.1,1.2,0.2
+                l0-2.1c0-0.1,0-0.2-0.1-0.3C21.3,7.1,21.9,6.2,21.9,5.1z"/>
+          </svg>
+        `;
+      ]]]
+
+icon_bed_lamp:
+  styles:
+    custom_fields:
+      icon:
+        - width: 100%
+        - margin-top: -1%
+        - margin-left: -13%
+        - fill: >
+            [[[
+              return variables.state_on
+                  ? '#9da0a2'
+                  : '#9da0a2';
+            ]]]
+  custom_fields:
+    icon: >
+      [[[
+        let style = `
+          <style>
+            @keyframes on {
+              0% {
+                transform: scale(0.85);
+              }
+              20% {
+                transform: scale(1.1);
+              }
+              40% {
+                transform: scale(0.95);
+              }
+              60% {
+                transform: scale(1.03);
+              }
+              80% {
+                transform: scale(0.97);
+              }
+              100% {
+                transform: scale(1);
+              }
+            }
+            .on {
+              animation: on 0.8s;
+              transform-origin: center;
+            }
+          </style>
+        `,
+          path = `
+            <path d="M14.8,17.6v13.2h2.4V17.6 M9.4,31.7h13.1c0.5,0,0.9-0.3,0.9-0.8c0-1-0.9-1.7-2.3-1.7H10.8 c-1.4,0-2.3,0.7-2.3,1.7C8.5,31.4,8.9,31.7,9.4,31.7z"/>
+          `,
+          filter = `
+            <filter id="blurMe">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="0.3" />
+            </filter>
+          `;
+        if (variables.state_on) {
+            return `
+              <svg viewBox="0 0 50 50"> ${style} ${filter} ${path}
+              <ellipse class="on bulb-color" cx="16.1" cy="16.5" rx="9.4" ry="3.8" filter="url(#blurMe)" opacity="0.6"/>
+              <path class="on shade-color" d="M16,17.6c3.2,0,6.4-0.2,8.9-0.5c2-0.3,2.6-1.6,1.9-3.4L23,3c-0.7-1.9-2.4-2.8-4.8-2.8h-4.4 C11.4,0.2,9.7,1.1,9,3L5.1,13.7c-0.7,1.8-0.1,3.1,1.9,3.4C9.6,17.5,12.8,17.6,16,17.6zM17.2,17.6v-0.7h-2.4v0.7"/>
+              </svg>
+            `;
+        } else {
+            return `
+              <svg viewBox="0 0 50 50"> ${style} ${path}
+              <path d="M16,17.6c3.2,0,6.4-0.2,8.9-0.5c2-0.3,2.6-1.6,1.9-3.4L23,3c-0.7-1.9-2.4-2.8-4.8-2.8h-4.4 C11.4,0.2,9.7,1.1,9,3L5.1,13.7c-0.7,1.8-0.1,3.1,1.9,3.4C9.6,17.5,12.8,17.6,16,17.6zM17.2,17.6v-0.7h-2.4v0.7"/>
+              </svg>
+            `;
+        }
+      ]]]
+
+icon_spot_long_group:
+  styles:
+    custom_fields:
+      icon:
+        - width: 100%
+        - margin-left: 0%
+        - margin-top: 1%
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on && variables.timeout < 2000 ? 'on' : null;
+        return `
+          <svg viewBox="0 0 50 50">
+            <style>
+              @keyframes on {
+                0% {
+                  transform: scale(0.85);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.95);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                100% {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 0.8s;
+                transform-origin: center;
+              }
+            </style>
+            <path class="${state} shade-color" d="M8,0.6c-4.3,0-7.2,1.6-7.2,4v7.3c0,2.3,2.9,3.8,7.2,3.8c4.3,0,7.2-1.5,7.2-3.8V4.6C15.1,2.2,12.3,0.6,8,0.6z
+              M8,14.5c-3.6,0-6-1.1-6-2.6c0-1.5,2.4-2.6,6-2.6c3.6,0,6,1.1,6,2.6C14,13.4,11.5,14.5,8,14.5z"/>
+            <path class="${state} bulb-color" d="M5,10.4c0,1.1,1.4,1.9,3,1.9s2.9-0.9,3-1.9C10.1,10.1,9.1,10,8,10C6.8,10,5.8,10.1,5,10.4z"/>
+            <path class="${state} shade-color" d="M24,0.6c-4.3,0-7.2,1.6-7.2,4v7.3c0,2.3,2.9,3.8,7.2,3.8c4.3,0,7.2-1.5,7.2-3.8V4.6C31.2,2.2,28.3,0.6,24,0.6z
+              M24,14.5c-3.6,0-6-1.1-6-2.6c0-1.5,2.4-2.6,6-2.6c3.6,0,6,1.1,6,2.6C30,13.4,27.6,14.5,24,14.5z"/>
+            <path class="${state} bulb-color" d="M21,10.4c0,1.1,1.4,1.9,3,1.9s2.9-0.9,3-1.9c-0.8-0.2-1.9-0.3-3-0.3C22.9,10,21.9,10.1,21,10.4z"/>
+            <path class="${state} shade-color" d="M15.9,16.3c-4.3,0-7.2,1.6-7.2,4v7.3c0,2.3,2.9,3.8,7.2,3.8c4.3,0,7.2-1.5,7.2-3.8v-7.3
+              C23,17.9,20.2,16.3,15.9,16.3z M15.9,30.3c-3.6,0-6-1.1-6-2.6c0-1.5,2.4-2.6,6-2.6c3.6,0,6,1.1,6,2.6C21.9,29.2,19.4,30.3,15.9,30.3z"/>
+            <path class="${state} bulb-color" d="M12.9,26.1c0,1.1,1.4,1.9,3,1.9s2.9-0.9,3-1.9c-0.8-0.2-1.9-0.3-3-0.3C14.7,25.8,13.7,25.9,12.9,26.1z"/>
+          </svg>
+        `;
+      ]]]
+
+icon_spot_long_single:
+  styles:
+    custom_fields:
+      icon:
+        - width: 100%
+        - margin-left: -5%
+        - margin-top: -10%
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on && variables.timeout < 2000 ? 'on' : null;
+        return `
+          <svg viewBox="0 0 50 50">
+            <style>
+              @keyframes on {
+                0% {
+                  transform: scale(0.85);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.95);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                100% {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 0.8s;
+                transform-origin: center;
+              }
+            </style>
+            <path class="${state} shade-color" d="M16,3.7c-7,0-11.7,2.6-11.7,6.6v12c0,3.7,4.7,6.1,11.7,6.1c7,0,11.7-2.4,11.7-6.1v-12C27.7,6.2,23,3.7,16,3.7z
+              M16,26.4c-5.8,0-9.8-1.8-9.8-4.2c0-2.5,4-4.2,9.8-4.2s9.8,1.8,9.8,4.2C25.8,24.7,21.8,26.4,16,26.4z"/>
+            <path class="${state} bulb-color" d="M11.1,19.6c0.1,1.7,2.2,3.1,4.9,3.1s4.8-1.4,4.9-3.1c-1.4-0.3-3-0.5-4.9-0.5C14.2,19.1,12.5,19.3,11.1,19.6z"/>
+          </svg>
+        `;
+      ]]]
+
+icon_spot_group:
+  styles:
+    custom_fields:
+      icon:
+        - width: 120%
+        - margin-left: -5%
+        - margin-top: -10%
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on && variables.timeout < 2000 ? 'on' : null;
+        return `
+          <svg viewBox="0 0 50 50">
+            <style>
+              @keyframes on {
+                0% {
+                  transform: scale(0.85);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.95);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                100% {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 0.8s;
+                transform-origin: center;
+              }
+            </style>
+            <path fill="#9da0a2" d="M19.1,19.8c-0.6,0.8-1.8,1.3-3.1,1.3c-1.4,0-2.6-0.5-3.2-1.3c-0.4,0.3-0.6,0.6-0.6,0.9c0,1,1.7,1.8,3.8,1.8
+              c2.1,0,3.8-0.8,3.8-1.8C19.8,20.4,19.5,20.1,19.1,19.8z"/>
+            <path class="${state} shade-color" d="M23.1,20.6c0-2.5-3.1-4.4-7.1-4.4c-4,0-7.1,1.9-7.1,4.4C8.9,23.1,12,25,16,25C20,25,23.1,23.1,23.1,20.6z
+              M16,23.2c-2.6,0-4.4-1.1-4.4-2.5c0-1.4,1.9-2.5,4.4-2.5c2.6,0,4.5,1.1,4.5,2.5C20.4,22.1,18.6,23.2,16,23.2z"/>
+            <path class="${state} bulb-color" d="M13.2,19.6c0.5,0.7,1.6,1.2,2.8,1.2c1.2,0,2.3-0.5,2.8-1.2c-0.6-0.4-1.7-0.7-2.8-0.7
+              C14.8,18.9,13.8,19.1,13.2,19.6z"/>
+            <path fill="#9da0a2" d="M11.1,10.8c-0.6,0.8-1.8,1.3-3.1,1.3c-1.4,0-2.6-0.5-3.2-1.3c-0.4,0.3-0.6,0.6-0.6,0.9c0,1,1.7,1.8,3.8,1.8
+              c2.1,0,3.8-0.8,3.8-1.8C11.7,11.4,11.5,11.1,11.1,10.8z"/>
+            <path class="${state} shade-color" d="M15,11.6C15,9.1,12,7.2,8,7.2c-4,0-7.1,1.9-7.1,4.4C0.9,14.2,3.9,16,8,16C12,16,15,14.1,15,11.6z M7.9,14.2
+              c-2.6,0-4.4-1.1-4.4-2.5c0-1.4,1.9-2.5,4.4-2.5c2.6,0,4.5,1.1,4.5,2.5C12.4,13.2,10.5,14.2,7.9,14.2z"/>
+            <path class="${state} bulb-color" d="M5.2,10.6c0.5,0.7,1.6,1.2,2.8,1.2c1.2,0,2.3-0.5,2.8-1.2C10.2,10.2,9.1,9.9,8,9.9C6.8,9.9,5.7,10.2,5.2,10.6z"/>
+            <path fill="#9da0a2" d="M27.2,10.9c-0.6,0.8-1.8,1.3-3.1,1.3c-1.4,0-2.6-0.5-3.2-1.3c-0.4,0.3-0.6,0.6-0.6,0.9c0,1,1.7,1.8,3.8,1.8
+              c2.1,0,3.8-0.8,3.8-1.8C27.9,11.5,27.6,11.2,27.2,10.9z"/>
+            <path class="${state} shade-color" d="M31.2,11.7c0-2.5-3.1-4.4-7.1-4.4c-4,0-7.1,1.9-7.1,4.4c0,2.5,3.1,4.4,7.1,4.4C28.1,16.1,31.2,14.2,31.2,11.7z
+              M24.1,14.3c-2.6,0-4.4-1.1-4.4-2.5c0-1.4,1.9-2.5,4.4-2.5c2.6,0,4.5,1.1,4.5,2.5C28.5,13.3,26.6,14.3,24.1,14.3z"/>
+            <path class="${state} bulb-color" d="M21.3,10.7c0.5,0.7,1.6,1.2,2.8,1.2c1.2,0,2.3-0.5,2.8-1.2c-0.6-0.4-1.7-0.7-2.8-0.7
+              C22.9,10,21.9,10.3,21.3,10.7z"/>
+          </svg>
+        `;
+      ]]]
+
+icon_hallway:
+  styles:
+    custom_fields:
+      icon:
+        - width: 140%
+        - margin-left: -14%
+        - margin-top: 1%
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on && variables.timeout < 2000 ? 'on' : null;
+        return `
+          <svg viewBox="0 0 50 50">
+            <style>
+              @keyframes on {
+                0% {
+                  transform: scale(0.85);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.95);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                100% {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 0.8s;
+                transform-origin: center;
+              }
+            </style>
+            <path fill="#9da0a2" d="M16,7h-2V1c0-0.6-0.4-1-1-1c-0.6,0-1,0.4-1,1v11H8v-2c0-0.6-0.4-1-1-1c-0.6,0-1,0.4-1,1v3c0,0.6,0.4,1,1,1h5v15 H8c-1.1,0-2,0.9-2,2c0,0.6,0.4,1,1,1h12c0.6,0,1-0.4,1-1c0-1.1-0.9-2-2-2h-4V9h2"/>
+            <path class="${state} room-color" d="M28,21.8L25.1,9c-0.5-2-2.4-3.3-4.4-3l-0.8-1.2c-0.4-0.6-1-0.9-1.7-0.9H17c-0.6,0-1,0.4-1,1v2l0,2v16c0,0.6,0.4,1,1,1h1.3c2.1,0,3.6-1.9,3.2-3.9L20.3,16l1.1-5l2.6,11.7c0.1,0.5,0.7,0.9,1.2,0.8l2-0.4C27.8,22.9,28.1,22.4,28,21.8"/>
+          </svg>
+        `;
+      ]]]
+
+###############################
+#              END            #
+#         CUSTOM ICONS        #
+###############################
+
+icon_ceiling_light:
+  styles:
+    custom_fields:
+      icon:
+        - width: 110%
+        - margin-left: -14%
+        - margin-top: 1%
+  custom_fields:
+    icon: >
+      [[[
+        let state = variables.state_on && variables.timeout < 2000 ? 'on' : null;
+        return `
+          <svg viewBox="0 0 50 50">
+            <style>
+              @keyframes on {
+                0% {
+                  transform: scale(0.85);
+                }
+                20% {
+                  transform: scale(1.1);
+                }
+                40% {
+                  transform: scale(0.95);
+                }
+                60% {
+                  transform: scale(1.03);
+                }
+                80% {
+                  transform: scale(0.97);
+                }
+                100% {
+                  transform: scale(1);
+                }
+              }
+              .on {
+                animation: on 0.8s;
+                transform-origin: center;
+              }
+            </style>
+            <path fill="#9da0a2" d="M21.7,1.3c-3.1-0.8-6.8-0.8-9.8,0c-1.1,0.3-1.6,1.1-1.4,2.2c0.5,2.4,2.6,4.1,5.3,4.4v4.2c0.3-0.1,0.7-0.1,1-0.1
+                c0.4,0,0.7,0,1.1,0.1V8c2.7-0.4,4.8-2.1,5.3-4.4C23.3,2.4,22.8,1.6,21.7,1.3z"/>
+            <path class="${state} bulb-color" d="M12.2,23.5c0,1.8,2.3,3.2,4.6,3.2c2.4,0,4.6-1.5,4.6-3.2c-1.3-0.2-2.9-0.3-4.6-0.3
+                C15.1,23.1,13.5,23.3,12.2,23.5z"/>
+            <path class="${state} shade-color" d="M22.3,16.2c-0.6-2.1-2.4-3.7-4.5-4.1c-0.3-0.1-0.7-0.1-1.1-0.1c-0.3,0-0.7,0-1,0.1c-2.1,0.4-3.9,1.9-4.5,4.1
+                c-3.8,1.9-6.9,6-7,9.3v0.2c0,3.4,5,5.7,12.5,5.7c7.6,0,12.6-2.3,12.5-5.7v-0.2C29.3,22.2,26.2,18.1,22.3,16.2z M16.8,29.6
+                c-6.4,0-10.7-1.5-10.7-3.8c0-2.3,4.3-3.9,10.7-3.9c6.4,0,10.7,1.5,10.7,3.9C27.5,28.1,23.2,29.6,16.8,29.6z"/>
+          </svg>
+        `;
+      ]]]
+
 icon_plex:
   custom_fields:
     icon: >
