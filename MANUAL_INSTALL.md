@@ -6,7 +6,7 @@
   state-icon-active-color-room: "#3182b7"
   state-icon-active-color-shade: "#3182b7"
 
-´´´
+```
 
 
 # Changes in extra_style.yaml
@@ -34,7 +34,7 @@
                     ? 'var(--state-icon-active-color-shade);'
                     : 'var(--state-icon-color);' }          
         }
-´´´
+```
 
 - COPY FOLLOWING UNDER .light-color BLOCK
 
@@ -54,4 +54,4 @@
           transition: all 0.25s ease-out;
         }
 
-´´´
+```
