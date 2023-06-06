@@ -19,25 +19,33 @@
 
 ## Icons and there names:
 - icon_ceiling_light
+
 ![icon_ceiling_light](/Main/edit/icon_ceiling_light.png)
 
 - icon_shade_long
+
 ![icon_shade_long](/Main/edit/icon_shade_long.png)
 
 - icon_side_lamp
+
 ![icon_side_lamp](/Main/edit/icon_side_lamp.png)
 
 - icon_bed_lamp
+
 ![icon_bed_lamp](/Main/edit/icon_bed_lamp.png)
 
 - icon_spot_long_group
+
 ![icon_spot_long_group](/Main/edit/icon_spot_long_group.png)
 
 - icon_spot_long_single
+
 ![icon_spot_long_single](/Main/edit/icon_spot_long_single.png)
 
 - icon_spot_group
+
 ![icon_spot_group](/Main/edit/icon_spot_group.png)
 
 - icon_hallway
+
 ![icon_hallway](/Main/edit/icon_hallway.png)
