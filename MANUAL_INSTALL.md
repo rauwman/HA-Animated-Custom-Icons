@@ -1,5 +1,6 @@
 ### Changes in tablet.yaml
-### COPY UNDER state-icon-active-color: "#3182b7" IN YOUR THEME FILE###
+### COPY UNDER state-icon-active-color: "#3182b7" IN YOUR THEME FILE ###
+
   state-icon-active-color-bulb: "#ffcc00"
   state-icon-active-color-room: "#3182b7"
   state-icon-active-color-shade: "#3182b7"
@@ -7,14 +8,6 @@
 
 
 ### Changes in extra_style.yaml
-
-        svg {
-          --light-color: ${
-            variables.state_on && entity.attributes.brightness
-                ? light_color
-                : variables.state_on && !entity.attributes.brightness
-                    ? 'var(--state-icon-active-color);'
-                    : 'var(--state-icon-color);' }
 
 ### COPY FOLLOWING UNDER --light-color BLOCK  ###
 
