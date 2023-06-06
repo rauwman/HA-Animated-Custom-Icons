@@ -7,7 +7,7 @@
   state-icon-active-color-shade: "#3182b7"
 
 ```
-![\edit\mod_theme.png]
+!(/../Main/edit/mod_theme.png)
 
 # Changes in extra_style.yaml
 
@@ -56,4 +56,4 @@
 
 ```
 
-![\edit\mod_extra.png]
+!(/../Main/edit/mod_extra.png)
