@@ -13,7 +13,7 @@
 ## Installation
 
 - Use /Main directory
-- You can copy/overwrite your files or add [this lines](Main\extra\extra_styles.yaml) in your theme (tablet.yaml) and [this lines](Main\extra\tablet.yaml) in extra style.yaml
+- You can copy/overwrite your files or add [this lines](https://github.com/rauwman/Home-Assistant-Custom-Icons/blob/main/MANUAL_INSTALL.md) in your theme (tablet.yaml) and in extra style.yaml
 - Search for you desired icon in the icons.yaml or just overwrite your existing files.
 
 
