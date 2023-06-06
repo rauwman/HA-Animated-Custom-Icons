@@ -1,15 +1,12 @@
-tablet.yaml
- 
- 
- 
-  ### COPY UNDER state-icon-active-color: "#3182b7" IN YOUR THEME FILE###
+### Changes in tablet.yaml
+### COPY UNDER state-icon-active-color: "#3182b7" IN YOUR THEME FILE###
   state-icon-active-color-bulb: "#ffcc00"
   state-icon-active-color-room: "#3182b7"
   state-icon-active-color-shade: "#3182b7"
 
 
 
-extra_style.yaml
+### Changes in extra_style.yaml
 
         svg {
           --light-color: ${
@@ -43,14 +40,8 @@ extra_style.yaml
                     : 'var(--state-icon-color);' }          
         }
 
-### STOP HERE ###
 
-        .light-color {
-          fill: var(--light-color);
-          transition: all 0.25s ease-out;
-        }
-
-        ### COPY FOLLOWING UNDER .light-color BLOCK ###
+### COPY FOLLOWING UNDER .light-color BLOCK ###
 
         .bulb-color {
           fill: var(--bulb-color);
@@ -67,10 +58,3 @@ extra_style.yaml
           transition: all 0.25s ease-out;
         }
 
-### STOP HERE ###
-
-        /* magnification */
-        :host {
-          --card-portrait: 1.4;
-          --card-phone: 2.271;
-        }
