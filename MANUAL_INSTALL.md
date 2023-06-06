@@ -1,5 +1,5 @@
 # Changes in tablet.yaml
-- COPY UNDER state-icon-active-color: "#3182b7" IN YOUR THEME FILE
+- copy under state-icon-active-color: "#3182b7" IN YOUR THEME FILE
 
 ```
   state-icon-active-color-bulb: "#ffcc00"
@@ -7,11 +7,11 @@
   state-icon-active-color-shade: "#3182b7"
 
 ```
-
+!(Main\edit\mod_theme.png)
 
 # Changes in extra_style.yaml
 
-- COPY FOLLOWING UNDER --light-color BLOCK 
+- copy following under --light-color BLOCK 
 ```
           --bulb-color: ${
             variables.state_on && entity.attributes.brightness
@@ -36,7 +36,7 @@
         }
 ```
 
-- COPY FOLLOWING UNDER .light-color BLOCK
+- copy following under .light-color BLOCK
 
 ```
         .bulb-color {
@@ -55,3 +55,5 @@
         }
 
 ```
+
+!(Main\edit\mod_extra.png)
