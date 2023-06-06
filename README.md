@@ -13,8 +13,8 @@
 ## Installation
 
 - Use /Main directory
-- You can copy/overwrite your files or add the the marked lines in your theme (tablet.yaml) and extra style.yaml
-- Search for you desired icon in the icons.yaml or just overwrite you existing file.
+- You can copy/overwrite your files or add [this lines](Main\extra\extra_styles.yaml) in your theme (tablet.yaml) and [this lines](Main\extra\tablet.yaml) in extra style.yaml
+- Search for you desired icon in the icons.yaml or just overwrite your existing files.
 
 
 ## Icons and there names:
